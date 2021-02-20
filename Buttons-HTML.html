@@ -1,0 +1,49 @@
+<div class="buttons"><button type="button" onclick="switchPage('page1')">About</button>
+
+    <button type="button" onclick="switchPage('page2')">Projects</button>
+    
+    <button type="button" onclick="switchPage('page3')">How to sub</button>
+    
+    <button type="button" onclick="switchPage('page4')">About GMA</button>
+        
+    </div>
+
+    
+    <div class="page page1 show">
+        <h1>This is page 1</h1>
+    </div>
+    
+    <div class="page page2">
+        <h1>This is page 2</h1>
+    </div>
+    
+    <div class="page page3">
+        <h1>This is page 3</h1>
+    </div>
+    
+    <div class="page page4">
+        <h1>This is page 4</h1>
+    </div>
+
+    <script type>
+        //page turner
+        {
+                       let currentPage = 'page1';
+                const $ = x => document.querySelector(x);
+                const $$ = x => document.querySelectorAll(x);
+                
+                $$('.page:not(.show)').forEach(x => x.style.display = 'none');
+                
+                function switchPage(page) {
+                    $('.' + currentPage).classList.remove('show');
+                    setTimeout(() => {
+                        $('.' + currentPage).style.display = 'none';
+                        $('.' + page).style.display = 'block';
+                        setTimeout(() => {
+                            $('.' + page).classList.add('show');
+                            currentPage = page;
+                        }, 50);
+                    }, 300);
+                }   
+        }    
+       </script>
